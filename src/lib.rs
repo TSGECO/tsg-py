@@ -1,3 +1,5 @@
+use std::path::PathBuf;
+
 use anyhow::Result;
 use pyo3::prelude::*;
 
@@ -10,10 +12,19 @@ fn sum_as_string(a: usize, b: usize) -> PyResult<String> {
     Ok((a + b).to_string())
 }
 
-#[gen_stub_pyfunction(module = "tsgraph")]
+#[gen_stub_pyfunction]
 #[pyfunction]
 fn to_hash_identifier(s: String) -> Result<String> {
     tsg::graph::to_hash_identifier(&s, None)
+}
+
+#[gen_stub_pyfunction]
+#[pyfunction]
+fn summary_graph(path: PathBuf) -> Result<String> {
+    use tsg::graph::TSGraphAnalysis;
+    let graph = tsg::graph::TSGraph::from_file(path)?;
+    let summary = graph.summarize()?;
+    Ok(summary.to_string())
 }
 
 /// A Python module implemented in Rust.
@@ -21,6 +32,7 @@ fn to_hash_identifier(s: String) -> Result<String> {
 fn tsgraph(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(sum_as_string, m)?)?;
     m.add_function(wrap_pyfunction!(to_hash_identifier, m)?)?;
+    m.add_function(wrap_pyfunction!(summary_graph, m)?)?;
     Ok(())
 }
 

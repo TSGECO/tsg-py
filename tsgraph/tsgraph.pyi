@@ -2,5 +2,12 @@
 # ruff: noqa: E501, F401
 
 import builtins
+import os
+import pathlib
 
-def to_hash_identifier(s: builtins.str) -> builtins.str: ...
+def summary_graph(path:builtins.str | os.PathLike | pathlib.Path) -> builtins.str:
+    ...
+
+def to_hash_identifier(s:builtins.str) -> builtins.str:
+    ...
+
