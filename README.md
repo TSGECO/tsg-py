@@ -1,5 +1,7 @@
 # TSGraph
 
+[![PyPI version](https://badge.fury.io/py/tsgraph.svg)](https://badge.fury.io/py/tsgraph)
+
 TSGraph is a Python package for TSG.
 
 ## Installation
