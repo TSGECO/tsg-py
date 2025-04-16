@@ -6,9 +6,9 @@ build-backend = "maturin"
 name = "tsgraph"
 description = "Python bindings for the TSG Rust library"
 authors = [{ name = "Yangyang Li", email = "yangyang.li@northwestern.edu" }]
+version = "0.1.0"
 requires-python = ">=3.10"
 classifiers = ["Programming Language :: Rust", "Programming Language :: Python :: Implementation :: CPython", "Programming Language :: Python :: Implementation :: PyPy"]
-dynamic = ["version"]
 readme = "README.md"
 license = { file = "LICENSE" }
 
