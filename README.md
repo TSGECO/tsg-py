@@ -26,7 +26,7 @@ print(result)
 
 ## Documentation
 
-For full documentation, visit [documentation link].
+For full documentation, visit <https://github.com/TSGECO/TSGECO.github.io>.
 
 ## Contributing
 
